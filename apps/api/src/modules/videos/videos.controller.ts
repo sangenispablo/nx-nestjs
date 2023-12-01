@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { VideosService } from './videos.service';
 import { CreateVideoDto } from './dto/create-video.dto';
@@ -21,7 +22,8 @@ export class VideosController {
   }
 
   @Get()
-  findAll() {
+  findAll(@Query() query: object) {
+    console.log(query);
     return this.videosService.findAll();
   }
 
